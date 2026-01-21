@@ -1,0 +1,45 @@
+/* Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+
+/* Global styles */
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom font utility classes */
+.font-bebas {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+/* Animation */
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-zoom {
+  animation: fadeZoom 1s ease-out forwards;
+}
