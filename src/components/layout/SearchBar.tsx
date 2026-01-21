@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
-import group from "../../assets/images/group.svg";
+import group from "../../assets/images/Group.svg";
 import cart from "../../assets/images/cart.svg";
 import vector from "../../assets/images/v1.svg";
 
