@@ -4,12 +4,11 @@ import Card from "@/components/layout/Card";
 import Catagory from "@/components/layout/Catagory";
 import AddProduct from "@/components/layout/AddProduct";
 import SeasonalFood from "@/components/layout/SeasonalFood";
-import Body from "@/components/layout/Body"; 
+import Body from "@/components/layout/Body";
 import Seasonal from "@/components/layout/Seasonal";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
-
-
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
@@ -19,9 +18,9 @@ const fadeUp = {
 export default function Home() {
   return (
     <div className="w-full overflow-hidden">
-      {/* HERO SECTION */}
+      {/* ================= HERO SECTION ================= */}
       <div className="relative min-h-screen overflow-hidden">
-        {/*  Background Video */}
+        {/* Background Video */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="/home-video.mp4"
@@ -31,10 +30,10 @@ export default function Home() {
           playsInline
         />
 
-        {/*  Dark Overlay for better text visibility */}
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
 
-        {/*  Content */}
+        {/* Content */}
         <div className="relative z-10 min-h-screen flex items-center">
           <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24">
             <div className="max-w-xl text-white">
@@ -42,7 +41,7 @@ export default function Home() {
                 Ecologically & Responsibly
               </h2>
 
-              <h4 className="font-light text-2xl sm:text-3xl md:text-6xl lg:text-5xl mb-4 tracking-wider ">
+              <h4 className="font-light text-2xl sm:text-3xl md:text-5xl lg:text-5xl mb-4 tracking-wider">
                 GROWN FOOD
               </h4>
 
@@ -60,8 +59,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* CATEGORY */}
-
+      {/* ================= CATEGORY ================= */}
       <motion.div
         className="relative -mt-16 px-4 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -69,14 +67,13 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <Catagory />
-
         <br />
         <span className="text-[#00814E] font-bebas sm:text-2xl md:text-3xl flex justify-center uppercase text-center text-3xl">
           Best Seller
         </span>
       </motion.div>
 
-      {/* CARDS */}
+      {/* ================= CARDS ================= */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -87,7 +84,7 @@ export default function Home() {
         <Card />
       </motion.div>
 
-      {/* ADD PRODUCT */}
+      {/* ================= ADD PRODUCT ================= */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -97,7 +94,7 @@ export default function Home() {
         <AddProduct />
       </motion.div>
 
-      {/* SEASONAL */}
+      {/* ================= SEASONAL ================= */}
       <motion.div
         className="mt-4"
         initial="hidden"

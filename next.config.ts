@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     dirs: ["src"],
   },
   pageExtensions: ["ts", "tsx"],
+  outputFileTracingRoot: __dirname,
 };
 
 export default nextConfig;
