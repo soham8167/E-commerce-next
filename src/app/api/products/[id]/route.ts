@@ -10,10 +10,8 @@ export async function GET(
   try {
     await connectDB();
 
-    // ✅ NEXT.JS 15 FIX: await params
     const { id } = await params;
 
-    // ✅ CHECK IF ID IS VALID MONGODB OBJECT ID
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json(
         { error: "Invalid product ID" },
