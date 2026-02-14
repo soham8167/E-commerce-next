@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 export async function GET(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     await connectDB();
@@ -15,28 +15,22 @@ export async function GET(
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json(
         { error: "Invalid product ID" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    // ✅ FETCH PRODUCT
-    const product = await Product.findById(id);
+    const product = (await Product.findById(id).lean().exec()) as any;
 
-    // ✅ IF NOT FOUND
     if (!product) {
-      return NextResponse.json(
-        { error: "Product not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
-    // ✅ RETURN PRODUCT
     return NextResponse.json(product, { status: 200 });
   } catch (error) {
     console.error("GET PRODUCT ERROR:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import MyWallet from "@/app/(pages)/mywallet/page";
+import MyWallet from "@/app/(main)/(pages)/mywallet/page";
 
 export default function MyWalletOpen() {
   return (

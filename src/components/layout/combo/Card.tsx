@@ -5,10 +5,19 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { comboStore } from "@/store/comboStore";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const Card = () => {
   const { products, increment, decrement } = comboStore();
   const router = useRouter();
+
+  useEffect(() => {
+    try {
+      comboStore.getState().loadFromServer?.();
+    } catch (e) {
+      // ignore
+    }
+  }, []);
 
   return (
     <div className="flex flex-wrap gap-8 justify-center m-5">

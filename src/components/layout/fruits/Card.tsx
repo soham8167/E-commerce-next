@@ -3,11 +3,21 @@ import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { fruitVegStore } from "../../../store/fruitsStore";
-import Image from "next/image"; 
+import Image from "next/image";
+import { useEffect } from "react";
 
 const Card = () => {
   const { products, increment, decrement } = fruitVegStore();
   const router = useRouter();
+
+  useEffect(() => {
+    // load server-added products into the store
+    try {
+      fruitVegStore.getState().loadFromServer?.();
+    } catch (e) {
+      // ignore
+    }
+  }, []);
 
   // console.log(products[1]);
 
@@ -16,8 +26,6 @@ const Card = () => {
       {products.map((item, index) => {
         if (index === 1) {
           return (
-
-           
             <div
               key={item.id}
               onClick={() => alert("Product not avaliable")}
@@ -81,7 +89,7 @@ const Card = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            viewport={{ once: true, amount:0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div
               key={item.id}
@@ -168,8 +176,7 @@ const Card = () => {
                 </div>
 
                 <button
-                  onClick={() => router.push
-                    (`/product/${item.id}`)}
+                  onClick={() => router.push(`/product/${item.id}`)}
                   className="flex items-center gap-2 border border-orange-500 px-3 py-2 rounded-2xl cursor-pointer"
                 >
                   <ShoppingCart size={15} /> Cart
